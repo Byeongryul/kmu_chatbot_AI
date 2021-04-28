@@ -1,0 +1,29 @@
+--------------------------------------------------------------------------------------------------------------
+인공지능
+--------------------------------------------------------------------------------------------------------------
+질문만들기
+low_data 추가
+    파일_영문_이름.csv 로 추가 -> key로 사용됨 -> 즉 data['파일_영문_이름']
+    앞에 내용이 있을 것 ex) 안녕하세요,~~~
+질문 증가법
+    src/make_preprocessed_data/create_training_data.py에서
+    makeQ 함수 안에 추가하면 됨
+실행하는 법
+    . src/exe/make_training_data.sh
+        파일 이름 변경을 원할시 --fname=dataset_v4
+        데이터 라인 수를 정하고 싶으면 --line_size=300000
+ex) make_preprocessed_data.sh  make_training_data.sh --fname=dataset_v4 --line_size=300000
+    결과 -> rsc/training_data/dataset_v4_300000.csv 생성    사이즈:300000
+    기본 결과 -> rsc/training_data/test.csv 생성            사이즈:기본 질문 개수
+--------------------------------------------------------------------------------------------------------------
+전처리
+실행하는 법
+    . src/exe/make_preprocessed_data.sh
+        파일 이름 변경을 원할시 --fname=dataset_v4
+    . src/exe/make_preprocessed_data.sh --fname=dataset_v4.csv
+--------------------------------------------------------------------------------------------------------------
+DB 관련 변경 필요
+1. config/DatabaseConfig 			설정 변경
+2. train_tools/qna/create_train_data_table	테이블 생성
+3. train_tools/qna/train_data.xlsx		excel에 값을 넣어 두기
+4. train_tools/qna/load_train_data		테이블 정리후 excel 값 db에 삽입

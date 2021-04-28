@@ -1,0 +1,19 @@
+<intent:INT_WORD> <2차 국가장학금:WARD>
+<intent:INT_GRE> 헬로우
+<intent:INT_ABU> <ㄱㅐ:ABU>
+<intent:INT_WORD> <2차 국가장학금:WARD> 어떻게 되니?
+<intent:INT_WORD> 헬로우 <2차 국가장학금:WARD>
+<intent:INT_ABU> <ㄱㅐ:ABU> <2차 국가장학금:WARD>
+<intent:INT_ABU> <2차 국가장학금:WARD> <ㄱㅐ:ABU>
+<intent:INT_WORD> <2차 국가장학금:WARD> <지원자격:Q>
+<intent:INT_WORD> <지원자격:Q> <2차 국가장학금:WARD>
+<intent:INT_WORD> <2차 국가장학금:WARD> <지원자격:Q> 어떻게 되니?
+<intent:INT_WORD> <지원자격:Q> <2차 국가장학금:WARD> 어떻게 되니?
+<intent:INT_ABU> <ㄱㅐ:ABU> <2차 국가장학금:WARD> <지원자격:Q> 어떻게 되니?
+<intent:INT_ABU> <2차 국가장학금:WARD> <ㄱㅐ:ABU> <지원자격:Q> 어떻게 되니?
+<intent:INT_ABU> <2차 국가장학금:WARD> <지원자격:Q> <ㄱㅐ:ABU> 어떻게 되니?
+<intent:INT_ABU> <2차 국가장학금:WARD> <지원자격:Q> 어떻게 되니? <ㄱㅐ:ABU>
+<intent:INT_ABU> <ㄱㅐ:ABU> <지원자격:Q> <2차 국가장학금:WARD> 어떻게 되니?
+<intent:INT_ABU> <지원자격:Q> <ㄱㅐ:ABU> <2차 국가장학금:WARD> 어떻게 되니?
+<intent:INT_ABU> <지원자격:Q> <2차 국가장학금:WARD> <ㄱㅐ:ABU> 어떻게 되니?
+<intent:INT_ABU> <지원자격:Q> <2차 국가장학금:WARD> 어떻게 되니? <ㄱㅐ:ABU>
