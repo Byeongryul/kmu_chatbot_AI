@@ -22,6 +22,10 @@ ex) make_preprocessed_data.sh  make_training_data.sh --fname=dataset_v4 --line_s
         파일 이름 변경을 원할시 --fname=dataset_v4
     . src/exe/make_preprocessed_data.sh --fname=dataset_v4.csv
 --------------------------------------------------------------------------------------------------------------
+데이터 수집할 때 xlsx로 했으면?
+    수집한 파일을 rsc/xlsx2csv에 넣고
+    src/util/xlsx2csv.py를 돌림
+    csv 파일로 변경됨
 DB 관련 변경 필요
 1. config/DatabaseConfig 			설정 변경
 2. train_tools/qna/create_train_data_table	테이블 생성
