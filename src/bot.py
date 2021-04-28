@@ -1,29 +1,16 @@
 import threading
 import json
 
-from config.DatabaseConfig import *
-from utils.Database import Database
-from utils.BotServer import BotServer
-from utils.Preprocess import Preprocess
-from models.intent.IntentModel import IntentModel
-from models.ner.NerModel import NerModel
-from utils.FindAnswer import FindAnswer
+from src.config.DatabaseConfig import *
+from src.util.Database import Database
+from src.util.BotServer import BotServer
+from src.model.intentNerModel import IntentNerModel
+from src.util.FindAnswer import FindAnswer
 
-
-# 전처리 객체 생성
-p = Preprocess(word2index_dic='train_tools/dict/chatbot_dict.bin',
-               userdic='utils/user_dic.tsv')
-
-# 의도 파악 모델
-intent = IntentModel(model_name='models/intent/intent_model.h5', proprocess=p)
-
-# 개체명 인식 모델
-ner = NerModel(model_name='models/ner/ner_model.h5', proprocess=p)
-
+intentNer = IntentNerModel()
 
 def to_client(conn, addr, params):
     db = params['db']
-
     try:
         db.connect()  # 디비 연결
 
@@ -43,15 +30,9 @@ def to_client(conn, addr, params):
         print("데이터 수신 : ", recv_json_data)
         query = recv_json_data['Query']
 
-        # 의도 파악
-        intent_predict = intent.predict_class(query)
-        intent_name = intent.labels[intent_predict]
-
-        # 개체명 파악
-        ner_predicts = ner.predict(query)
-        ner_tags = ner.predict_tags(query)
-
-
+        predict = intentNer.input2intentNer('intent ' + query)
+        intent_name = predict[0].values()[0]
+        ner_predicts = predict[1:]
         # 답변 검색
         try:
             f = FindAnswer(db)
@@ -62,12 +43,14 @@ def to_client(conn, addr, params):
             answer = "죄송해요 무슨 말인지 모르겠어요. 조금 더 공부 할게요."
             answer_image = None
 
+        url = ''
         send_json_data_str = {
             "Query" : query,
             "Answer": answer,
             "AnswerImageUrl" : answer_image,
             "Intent": intent_name,
-            "NER": str(ner_predicts)
+            "NER": str(ner_predicts),
+            "Url": url
         }
         message = json.dumps(send_json_data_str)
         conn.send(message.encode())

@@ -1,7 +1,7 @@
 
 import pandas as pd
 import os
-dir_name = os.getcwd() + '/rsc/data_mapping/'
+dir_name = os.getcwd() + '/rsc/xlsx2csv/'
 
 files = os.listdir(dir_name)
 files_xlsx = [file for file in files if file.endswith(".xlsx")]
