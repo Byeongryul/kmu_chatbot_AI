@@ -16,7 +16,7 @@ class Bert:
         self.modeling()
 
     def idx2label(self):
-        df = pd.read_csv('rsc/preprocessed_training_data/' + self.fname)
+        df = pd.read_csv('rsc/preprocessed_data/' + self.fname)
         tag_list = np.sort(df.Tag.unique())[::-1]
         label_map = {label: i+1 for i, label in enumerate(tag_list)}   ##tag_list에 레이블 
         idx2label = {i: w for w, i in label_map.items()}  ##tag_list을 뒤집어 놓은거

@@ -1,0 +1,10 @@
+인공지능 학습법
+    인공지능 코드 내에 있는 ipynb 파일을 구글 드라이브에 삽입
+    코드 안내에 따라 실행하면 2시간 반 이후 완료된 학습 데이터를 받을 수 있음
+-----------------------------------------------------------------------
+인공지능 사용법
+    from src.model.intentNerModel import IntentNerModel 하여 사용함
+    intentNer = IntentNerModel()
+    print(intentNer.input2intentNer('문장'))
+        결과 = [{'INT_ABU':'intent'}]
+    

@@ -8,8 +8,8 @@ import os
 nlp = Mecab()
 
 def preprocessing(fname):
-    input_dir = 'rsc/training_data/' + fname
-    output_dir = 'rsc/preprocessed_training_data/' + fname
+    input_dir = 'rsc/training_data/' + fname + '.csv'
+    output_dir = 'rsc/preprocessed_data/' + fname + '.csv'
 
     f = open(input_dir, 'r', encoding='utf-8')
     qs = f.readlines()
@@ -43,6 +43,6 @@ def preprocessing(fname):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--fname', type=str, default='test.csv')
+    parser.add_argument('--fname', type=str, default='test')
     args = parser.parse_args()
     preprocessing(args.fname)

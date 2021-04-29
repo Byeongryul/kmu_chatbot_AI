@@ -37,14 +37,17 @@ class IntentNerModel:
           words = word
         else :
           words += word[2:]
+    if lists[-1][list(lists[-1].keys())[0]] == '':
+      lists[-1][list(lists[-1].keys())[0]] = words
     return lists
 
   def convert_sentences_to_input(self, sentences):
     tokens = []
     max_seq_length = self.bert.max_seq_length
 
-    word_tokens = self.tokenizer.tokenize(sentences)
+    word_tokens = self.tokenizer.tokenize('intent ' + sentences)
     tokens.extend(word_tokens)
+    print(tokens)
   
     special_tokens_count =  2
     # 길면 자름
