@@ -26,7 +26,19 @@ test_datas = [
   '아니 돈 얼마나 줌? 국장임',
   '높은 곳에서는 새가 날고 낮은 곳에서 물이 흐르니 내 성적은 바닥을 기며 혀를 낼름 거리는데 장학금 받을 수 있을까?'
 ]
-for data in test_datas:
-  print(data)
-  print(intentNer.input2intentNer(data))
+for q in test_datas:
+  predict = intentNer.input2intentNer(q)
+  intent_name = ''
+  ner_predicts, ner_tags = [], []
+  temp = {}
+  for data in predict:
+    key, value = list(data.keys())[0], list(data.values())[0]
+    if 'intent' in value: intent_name = key
+    else: temp[key] = temp[key] + value if key in temp else value
+    
+  for k, v in temp.items(): ner_predicts.append((v, k)), ner_tags.append(k)
+
+  print(intent_name)
+  print(ner_predicts)
+  print(ner_tags)
   print()

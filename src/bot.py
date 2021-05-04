@@ -31,19 +31,16 @@ def to_client(conn, addr, params):
         print("데이터 수신 : ", recv_json_data)
         query = recv_json_data['Query']
 
-        intent_name = ''
-        ner_predicts = []
-        ner_tags = []
-
         predict = intentNer.input2intentNer(query)
+        intent_name = ''
+        ner_predicts, ner_tags = [], []
+        temp = {}
         for data in predict:
-            key = list(data.keys())[0]
-            value = list(data.values())[0]
-            if 'intent' in value:
-                intent_name = key
-            else:
-                ner_predicts.append((value, key))
-                ner_tags.append(key)
+            key, value = list(data.keys())[0], list(data.values())[0]
+            if 'intent' in value: intent_name = key
+            else: temp[key] = temp[key] + value if key in temp else value
+        for k, v in temp.items(): ner_predicts.append((v, k)), ner_tags.append(k)
+
         # 답변 검색
         try:
             f = FindAnswer(db)

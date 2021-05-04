@@ -47,7 +47,6 @@ class IntentNerModel:
 
     word_tokens = self.tokenizer.tokenize('intent ' + sentences)
     tokens.extend(word_tokens)
-    print(tokens)
   
     special_tokens_count =  2
     # 길면 자름
