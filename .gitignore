@@ -153,3 +153,5 @@ dmypy.json
 
 *.h5
 dataset*.csv
+
+DatabaseConfig.py

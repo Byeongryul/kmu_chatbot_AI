@@ -1,9 +1,9 @@
 # data get
-pip
+# pip
+# mecab_python-0.996_ko_0.9.2_msvc-cp37-cp37m-win_amd64.whl
 
 pandas
 eunjeon
-mecab_python-0.996_ko_0.9.2_msvc-cp37-cp37m-win_amd64.whl
 tqdm
 
 # Ai

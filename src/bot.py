@@ -9,6 +9,7 @@ from src.util.FindAnswer import FindAnswer
 
 intentNer = IntentNerModel()
 
+
 def to_client(conn, addr, params):
     db = params['db']
     try:
@@ -30,9 +31,19 @@ def to_client(conn, addr, params):
         print("데이터 수신 : ", recv_json_data)
         query = recv_json_data['Query']
 
-        predict = intentNer.input2intentNer('intent ' + query)
-        intent_name = predict[0].values()[0]
-        ner_predicts = predict[1:]
+        intent_name = ''
+        ner_predicts = []
+        ner_tags = []
+
+        predict = intentNer.input2intentNer(query)
+        for data in predict:
+            key = list(data.keys())[0]
+            value = list(data.values())[0]
+            if 'intent' in value:
+                intent_name = key
+            else:
+                ner_predicts.append((value, key))
+                ner_tags.append(key)
         # 답변 검색
         try:
             f = FindAnswer(db)
