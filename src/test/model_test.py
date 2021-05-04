@@ -35,7 +35,6 @@ for q in test_datas:
     key, value = list(data.keys())[0], list(data.values())[0]
     if 'intent' in value: intent_name = key
     else: temp[key] = temp[key] + value if key in temp else value
-    
   for k, v in temp.items(): ner_predicts.append((v, k)), ner_tags.append(k)
 
   print(intent_name)
