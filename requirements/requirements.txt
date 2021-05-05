@@ -1,9 +1,9 @@
 # data get
-# pip
-# mecab_python-0.996_ko_0.9.2_msvc-cp37-cp37m-win_amd64.whl
+#pip
+#mecab_python-0.996_ko_0.9.2_msvc-cp37-cp37m-win_amd64.whl
 
 pandas
-eunjeon
+#eunjeon
 tqdm
 
 # Ai
@@ -17,3 +17,4 @@ kobert-transformers
 # DB
 pymysql
 openpyxl
+cryptography

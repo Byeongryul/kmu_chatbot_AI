@@ -1,3 +1,7 @@
+version python 3.7.9
+설치 후 
+[. src/exe/intall.sh] 실행
+
 인공지능
 
 DB 관련 변경 필요
