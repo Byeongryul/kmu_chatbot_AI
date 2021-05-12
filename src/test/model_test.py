@@ -1,6 +1,8 @@
 from src.model.intentNerModel import IntentNerModel
 intentNer = IntentNerModel()
 test_datas = [
+  '아니 특기 장학금',
+  '특기 장학금 아니',
   '2차 국가장학금',
   '헬로우',
   'ㄱㅐ',

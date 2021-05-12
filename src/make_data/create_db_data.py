@@ -44,7 +44,7 @@ for row in df.T:
                     urls[temp] = urls[name] + v + '/'
                     b_InputData(name, temp, urls[temp])
                     a_InputData(temp, df[k][row], urls[temp])
-  
+a_InputData('잘 모르겠어요', '대화의로를 알 수 없습니다. 다시 입력해주세요.', main_url + 'null/')
 answer_button = {'title':b_titles, 'button_name':b_names, 'button_url':b_urls}
 answer_button = pd.DataFrame(answer_button)
 answer = {'title':a_titles, 'document':a_documents, 'url':a_urls}

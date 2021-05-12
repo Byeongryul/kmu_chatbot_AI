@@ -1,6 +1,6 @@
 
 print(df)
-# qs = pd.read_csv('rsc/data_mapping/question_mapping.csv').drop('Unnamed: 0', axis = 1)
+# qs = pd.read_csv('rsc/data_mapping/sholaship_qu_mapping.csv').drop('Unnamed: 0', axis = 1)
 # q = '토익'
 # qr = '?'
 # for row in qs.T:
@@ -9,7 +9,7 @@ print(df)
 #         break
 # print(qr)
 
-# wards = pd.read_csv('rsc/data_mapping/scholarship_mapping.csv').drop('Unnamed: 0', axis = 1)
+# wards = pd.read_csv('rsc/data_mapping/scholaship_name_mapping.csv').drop('Unnamed: 0', axis = 1)
 # ward = '국장'
 # wardr = '?'
 # for row in wards.T:
